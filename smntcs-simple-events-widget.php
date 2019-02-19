@@ -1,13 +1,18 @@
 <?php
-/*
-Plugin Name: SMNTCS Simple Events Widget
-Description: Add meta box to posts and pages, to select event start and end date and show upcoming (and previous) events as sidebar widget
-Author: Niels Lange
-Author URI: https://nielslange.com
-Text Domain: smntcs-simple-events-widget
-Domain Path: /languages/
-Version: 1.0
-*/
+/**
+ * Plugin Name: SMNTCS Simple Events Widget
+ * Plugin URI: https://github.com/nielslange/smntcs-simple-events-widget
+ * Description: Add meta box to posts and pages, to select event start and end date and show upcoming (and previous) events as sidebar widget
+ * Author: Niels Lange
+ * Author URI: https://nielslange.com
+ * Text Domain: smntcs-simple-events-widget
+ * Domain Path: /languages/
+ * Version: 1.1
+ * Requires at least: 3.4
+ * Tested up to: 5.0
+ * License: GPLv2
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ */
 
 /* Copyright 2014-2016 Niels Lange (email : info@nielslange.de)
 

@@ -1,0 +1,29 @@
+{
+    "name": "nielslange/smntcs-simple-events-widget",
+    "description": "Add meta box to posts and pages, to select event start and end date and show upcoming (and previous) events as sidebar widget.",
+    "homepage": "https://wordpress.org/plugins/smntcs-simple-events-widget/",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "Niels Lange",
+            "email": "info@nielslange.de"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "humanmade/psalm-plugin-wordpress": "^2.0",
+        "overtrue/phplint": "^2.3",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "squizlabs/php_codesniffer": "^3.6",
+        "vimeo/psalm": "^4.7",
+        "wp-coding-standards/wpcs": "^2.3"
+    },
+    "scripts": {
+        "cbf": "phpcbf --standard=.phpcs.xml .",
+        "cs": "phpcs --standard=.phpcs.xml .",
+        "lint": "phplint",
+        "psalm": "psalm --no-cache"
+    }
+}

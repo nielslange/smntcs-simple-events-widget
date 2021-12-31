@@ -17,3 +17,17 @@ Sidebar widget to show (upcoming and previous) events
 4. If wanted, also provide an end date of the event
 5. Go to 'Customize » Widgets', add the 'Simple Events Widget' to the required sidebar
 6. Adjust the widget settings according to you needs
+
+## Changelog
+
+### 1.2 (2021.12.31)
+
+-   Tested up to 5.8
+
+### 1.1 (2019.02.19)
+
+-   Tested up to 5.0
+
+### 1.0 (2018.04.09)
+
+-   Initial release

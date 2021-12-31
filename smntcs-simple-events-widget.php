@@ -7,7 +7,8 @@
  * Author URI: https://nielslange.de
  * Text Domain: smntcs-simple-events-widget
  * Domain Path: /languages/
- * Version: 1.1
+ * Version: 1.2
+ * Stable tag: trunk
  * Tested up to: 5.8
  * Requires at least: 3.4
  * Requires PHP: 7.0

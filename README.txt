@@ -3,9 +3,9 @@
 Contributors: nielslange
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4NCYC2DNXLV8J
 Tags: Simple Events, Event, Widget, Sidebar
-Version: 1.1
+Version: 1.2
 Stable tag: trunk
-Tested up to: 5.0
+Tested up to: 5.8
 Requires at least: 3.4
 Requires PHP: 7.0
 License: GPLv2 or later
@@ -34,8 +34,11 @@ Sidebar widget to show (upcoming and previous) events
 
 == Changelog ==
 
-= 1.1 =
+= 1.2 (2021.12.31) =
 * Tested up to 5.0
 
-= 1.0 =
+= 1.1 (2019.02.19) =
+* Tested up to 5.0
+
+= 1.0 (2018.04.09) =
 * Initial release

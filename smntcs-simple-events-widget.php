@@ -8,9 +8,9 @@
  * Text Domain: smntcs-simple-events-widget
  * Domain Path: /languages/
  * Version: 1.1
+ * Tested up to: 5.8
  * Requires at least: 3.4
  * Requires PHP: 7.0
- * Tested up to: 5.0
  * License: GPLv2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
@@ -197,8 +197,8 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 	/**
 	 * Create widget.
 	 *
-	 * @param array $args
-	 * @param array $instance
+	 * @param array $args Display arguments including 'before_title', 'after_title', 'before_widget', and 'after_widget'.
+	 * @param array $instance The settings for the particular instance of the widget.
 	 */
 	public function widget( $args, $instance ) {
 

@@ -1,3 +1,7 @@
 /.DS_Store
-
-/vendor/
+node_modules
+vendor
+composer.lock
+package-lock.json
+/.phplint.cache
+/.phpcs.cache

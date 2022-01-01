@@ -6,31 +6,19 @@
  * Author: Niels Lange
  * Author URI: https://nielslange.de
  * Text Domain: smntcs-simple-events-widget
- * Domain Path: /languages/
- * Version: 1.1
+ * Version: 1.2
+ * Stable tag: 1.2
  * Tested up to: 5.8
  * Requires at least: 3.4
  * Requires PHP: 7.0
- * License: GPLv2
+ * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
  * @package SMNTCS
  */
 
 // Avoid direct plugin access.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
-/**
- * Load text domain.
- *
- * @return void
- */
-function smntcs_plugins_loaded() {
-	load_plugin_textdomain( 'smntcs-simple-events-widget', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-}
-add_action( 'plugins_loaded', 'smntcs_plugins_loaded' );
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Add settings link on plugin page.

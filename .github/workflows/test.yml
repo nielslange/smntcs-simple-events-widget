@@ -4,7 +4,6 @@ on: [pull_request]
 
 jobs:
   test:
-    name: Run integration scripts
     runs-on: ubuntu-latest
 
     steps:

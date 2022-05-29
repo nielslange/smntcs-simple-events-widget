@@ -24,17 +24,21 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-simple-events-wi
 
 ## Changelog
 
+### 1.4 (2022.05.29) =
+
+-   Test up to 6.0
+
 ### 1.3 (2022.01.01)
 
--   Update stable tag
+-   Test up to 5.9
 
 ### 1.2 (2019.12.31)
 
--   Tested up to 5.8
+-   Test up to 5.8
 
 ### 1.1 (2019.02.19)
 
--   Tested up to 5.0
+-   Test up to 5.0
 
 ### 1.0 (2018.04.09)
 

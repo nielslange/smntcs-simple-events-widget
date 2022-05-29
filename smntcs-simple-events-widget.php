@@ -6,15 +6,17 @@
  * Author: Niels Lange
  * Author URI: https://nielslange.de
  * Text Domain: smntcs-simple-events-widget
- * Version: 1.2
- * Stable tag: 1.2
- * Tested up to: 5.8
+ * Version: 1.4
  * Requires at least: 3.4
- * Requires PHP: 7.0
- * License: GPLv2 or later
+ * Requires PHP: 5.4
+ * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
- * @package SMNTCS
+ * @category   Plugin
+ * @package    WordPress
+ * @subpackage SMNTCS Simple Events Widget
+ * @author     Niels Lange <info@nielslange.de>
+ * @license    http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 // Avoid direct plugin access.

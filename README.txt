@@ -3,12 +3,11 @@
 Contributors: nielslange
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4NCYC2DNXLV8J
 Tags: Simple Events, Event, Widget, Sidebar
-Version: 1.2
-Stable tag: 1.2
-Tested up to: 5.0
+Stable tag: 1.4
+Tested up to: 6.0
 Requires at least: 3.4
-Requires PHP: 7.0
-License: GPLv2 or later
+Requires PHP: 5.4
+License: GPL v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Sidebar widget to show (upcoming and previous) events.
@@ -34,14 +33,17 @@ Sidebar widget to show (upcoming and previous) events.
 
 == Changelog ==
 
+= 1.4 (2022.05.29) =
+* Test up to 6.0
+
 = 1.3 (2022.01.01) =
-* Update stable tag
+* Test up to 5.9
 
 = 1.2 (2019.12.31) =
-* Tested up to 5.8
+* Test up to 5.8
 
 = 1.1 (2019.02.19) =
-* Tested up to 5.0
+* Test up to 5.0
 
 = 1.0 (2018.04.09) =
 * Initial release

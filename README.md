@@ -1,11 +1,13 @@
 # SMNTCS Simple Events Widget
 
-[![](https://img.shields.io/github/license/nielslange/smntcs-simple-events-widget.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
-[![](https://plugintests.com/plugins/smntcs-simple-events-widget/wp-badge.svg)](https://plugintests.com/plugins/smntcs-simple-events-widget/latest)
-[![](https://plugintests.com/plugins/smntcs-simple-events-widget/php-badge.svg)](https://plugintests.com/plugins/smntcs-simple-events-widget/latest)
-[![](https://img.shields.io/wordpress/plugin/dt/smntcs-simple-events-widget.svg)](https://wordpress.org/plugins/smntcs-simple-events-widget/)
-[![](https://img.shields.io/wordpress/plugin/v/smntcs-simple-events-widget.svg)](https://wordpress.org/plugins/smntcs-simple-events-widget/)
-[![](https://img.shields.io/github/tag/nielslange/smntcs-simple-events-widget.svg)](https://wordpress.org/plugins/smntcs-simple-events-widget/)
+![Support Level](https://img.shields.io/badge/support-active-green.svg)
+![Build Status](https://github.com/nielslange/smntcs-simple-events-widget/actions/workflows/test.yml/badge.svg)
+![GPLv2 License](https://img.shields.io/github/license/nielslange/smntcs-simple-events-widget.svg)
+![Compatible to WordPress version](https://plugintests.com/plugins/smntcs-simple-events-widget/wp-badge.svg)
+![Compatible to PHP version](https://plugintests.com/plugins/smntcs-simple-events-widget/php-badge.svg)
+![Downloads](https://img.shields.io/wordpress/plugin/dt/smntcs-simple-events-widget.svg)
+![Plugin Version](https://img.shields.io/wordpress/plugin/v/smntcs-simple-events-widget.svg)
+![Tag Version](https://img.shields.io/github/tag/nielslange/smntcs-simple-events-widget.svg)
 
 Sidebar widget to show (upcoming and previous) events.
 
@@ -24,21 +26,25 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-simple-events-wi
 
 ## Changelog
 
-### 1.4 (2022.05.29) =
+### 1.5 (2022.12.03)
 
--   Test up to 6.0
+-   Test up to WP 6.1
+
+### 1.4 (2022.05.29)
+
+-   Test up to WP 6.0
 
 ### 1.3 (2022.01.01)
 
--   Test up to 5.9
+-   Test up to WP 5.9
 
 ### 1.2 (2019.12.31)
 
--   Test up to 5.8
+-   Test up to WP 5.8
 
 ### 1.1 (2019.02.19)
 
--   Test up to 5.0
+-   Test up to WP 5.0
 
 ### 1.0 (2018.04.09)
 

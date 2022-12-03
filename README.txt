@@ -1,14 +1,13 @@
 === SMNTCS Simple Events Widget ===
 
-Contributors: nielslange
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4NCYC2DNXLV8J
-Tags: Simple Events, Event, Widget, Sidebar
-Stable tag: 1.4
-Tested up to: 6.0
-Requires at least: 3.4
-Requires PHP: 5.4
-License: GPL v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Contributors:       nielslange
+Tags:               Simple Events, Event, Widget, Sidebar
+Stable tag:         1.5
+Tested up to:       6.1
+Requires PHP:       5.6
+Requires at least:  3.4
+License:            GPL v2 or later
+License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
 Sidebar widget to show (upcoming and previous) events.
 
@@ -33,17 +32,26 @@ Sidebar widget to show (upcoming and previous) events.
 
 == Changelog ==
 
+= 1.5 (2022.12.03) =
+
+-   Test up to WP 6.1
+
 = 1.4 (2022.05.29) =
-* Test up to 6.0
+
+- Test up to WP 6.0
 
 = 1.3 (2022.01.01) =
-* Test up to 5.9
+
+- Test up to WP 5.9
 
 = 1.2 (2019.12.31) =
-* Test up to 5.8
+
+- Test up to WP 5.8
 
 = 1.1 (2019.02.19) =
-* Test up to 5.0
+
+- Test up to WP 5.0
 
 = 1.0 (2018.04.09) =
-* Initial release
+
+- Initial release

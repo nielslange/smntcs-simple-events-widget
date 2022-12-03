@@ -1,25 +1,20 @@
 <?php
 /**
- * Plugin Name: SMNTCS Simple Events Widget
- * Plugin URI: https://github.com/nielslange/smntcs-simple-events-widget
- * Description: Add meta box to posts and pages, to select event start and end date and show upcoming and previous events as sidebar widget.
- * Author: Niels Lange
- * Author URI: https://nielslange.de
- * Text Domain: smntcs-simple-events-widget
- * Version: 1.4
- * Requires at least: 3.4
- * Requires PHP: 5.4
- * License: GPL v2 or later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Plugin Name:           SMNTCS Simple Events Widget
+ * Plugin URI:            https://github.com/nielslange/smntcs-simple-events-widget
+ * Description:           Add meta box to posts and pages, to select event start and end date and show upcoming and previous events as sidebar widget.
+ * Author:                Niels Lange
+ * Author URI:            https://nielslange.de
+ * Text Domain:           smntcs-simple-events-widget
+ * Version:               1.5
+ * Requires PHP:          5.6
+ * Requires at least:     3.4
+ * License:               GPL v2 or later
+ * License URI:           https://www.gnu.org/licenses/gpl-2.0.html
  *
- * @category   Plugin
- * @package    WordPress
- * @subpackage SMNTCS Simple Events Widget
- * @author     Niels Lange <info@nielslange.de>
- * @license    http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @package SMNTCS_Simple_Events_Widget
  */
 
-// Avoid direct plugin access.
 defined( 'ABSPATH' ) || exit;
 
 /**

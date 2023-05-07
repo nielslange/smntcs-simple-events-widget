@@ -2,7 +2,7 @@
 
 Contributors:       nielslange
 Tags:               Simple Events, Event, Widget, Sidebar
-Stable tag:         1.6
+Stable tag:         1.7
 Tested up to:       6.2
 Requires PHP:       5.6
 Requires at least:  3.4
@@ -31,6 +31,11 @@ Sidebar widget to show (upcoming and previous) events.
 3. See desired events within the sidebar.
 
 == Changelog ==
+
+= 1.7 (2023.05.07) =
+
+-   Only execute plugin on posts and pages
+-   Remove line break after event list
 
 = 1.6 (2023.05.07) =
 

@@ -26,6 +26,11 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-simple-events-wi
 
 ## Changelog
 
+### 1.7 (2023.05.07)
+
+-   Only execute plugin on posts and pages
+-   Remove line break after event list
+
 ### 1.6 (2023.05.07)
 
 -   Show message when no events are available.

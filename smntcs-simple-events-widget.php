@@ -6,7 +6,7 @@
  * Author:                Niels Lange
  * Author URI:            https://nielslange.de
  * Text Domain:           smntcs-simple-events-widget
- * Version:               1.5
+ * Version:               1.6
  * Requires PHP:          5.6
  * Requires at least:     3.4
  * License:               GPL v2 or later
@@ -244,6 +244,8 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 				}
 			}
 			print( '</ul><br>' );
+		} else {
+			print( '<p>' . esc_html__( 'No events found.', 'smntcs-simple-events-widget' ) . '</p>' );
 		}
 
 		$args = $temp;

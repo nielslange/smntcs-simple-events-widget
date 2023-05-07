@@ -34,7 +34,7 @@ Sidebar widget to show (upcoming and previous) events.
 
 = 1.6 (2023.05.07) =
 
--   Show message when no events are available.
+-   Show message when no events are available
 -   Test up to WP 6.2
 
 = 1.5 (2022.12.03) =

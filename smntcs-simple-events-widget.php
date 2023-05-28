@@ -6,7 +6,7 @@
  * Author:                Niels Lange
  * Author URI:            https://nielslange.de
  * Text Domain:           smntcs-simple-events-widget
- * Version:               1.7
+ * Version:               1.8
  * Requires PHP:          5.6
  * Requires at least:     3.4
  * License:               GPL v2 or later
@@ -119,7 +119,7 @@ function smntcs_save_post( $post_id ) {
 	}
 
 	// Return if user is not on page or post.
-	if ( 'page' !== ( $_POST['post_type'] ) || 'post' !== ( $_POST['post_type'] ) ) {
+	if ( ! isset( $_POST['post_type'] ) || ( 'page' !== $_POST['post_type'] && 'post' !== $_POST['post_type'] ) ) {
 		return;
 	}
 

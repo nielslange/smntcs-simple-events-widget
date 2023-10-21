@@ -26,6 +26,10 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-simple-events-wi
 
 ## Changelog
 
+= 1.9 (2023.10.21) =
+
+-   Test up to WP 6.4
+
 ### 1.8 (2023.05.28)
 
 -   Fix warning when regarding undefined array key

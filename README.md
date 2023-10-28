@@ -26,44 +26,48 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-simple-events-wi
 
 ## Changelog
 
-= 1.9 (2023.10.21) =
+### 2.0 (2023.10.28)
 
--   Test up to WP 6.4
+- Fix i18n issue
+
+### 1.9 (2023.10.21)
+
+- Test up to WP 6.4
 
 ### 1.8 (2023.05.28)
 
--   Fix warning when regarding undefined array key
+- Fix warning when regarding undefined array key
 
 ### 1.7 (2023.05.07)
 
--   Only execute plugin on posts and pages
--   Remove line break after event list
+- Only execute plugin on posts and pages
+- Remove line break after event list
 
 ### 1.6 (2023.05.07)
 
--   Show message when no events are available.
--   Test up to WP 6.2
+- Show message when no events are available.
+- Test up to WP 6.2
 
 ### 1.5 (2022.12.03)
 
--   Test up to WP 6.1
+- Test up to WP 6.1
 
 ### 1.4 (2022.05.29)
 
--   Test up to WP 6.0
+- Test up to WP 6.0
 
 ### 1.3 (2022.01.01)
 
--   Test up to WP 5.9
+- Test up to WP 5.9
 
 ### 1.2 (2019.12.31)
 
--   Test up to WP 5.8
+- Test up to WP 5.8
 
 ### 1.1 (2019.02.19)
 
--   Test up to WP 5.0
+- Test up to WP 5.0
 
 ### 1.0 (2018.04.09)
 
--   Initial release
+- Initial release

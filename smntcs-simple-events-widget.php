@@ -6,7 +6,7 @@
  * Author:                Niels Lange
  * Author URI:            https://nielslange.de
  * Text Domain:           smntcs-simple-events-widget
- * Version:               2.1
+ * Version:               2.2
  * Requires PHP:          5.6
  * Requires at least:     3.4
  * License:               GPL v2 or later
@@ -15,10 +15,14 @@
  * @package SMNTCS_Simple_Events_Widget
  */
 
+// Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+// Define plugin file.
+define( 'SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE', __FILE__ );
+
 // Include the main class file.
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-smntcs-simple-events.php';
+require_once plugin_dir_path( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ) . 'includes/class-smntcs-simple-events.php';
 
 // Include the widget class file.
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-smntcs-simple-events-widget.php';
+require_once plugin_dir_path( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ) . 'includes/class-smntcs-simple-events-widget.php';

@@ -19,7 +19,7 @@ class SMNTCS_Simple_Events {
 	 */
 	public function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_settings_link' ) );
+		add_filter( 'plugin_action_links_' . plugin_basename( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ), array( $this, 'plugin_settings_link' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 		add_action( 'save_post', array( $this, 'save_post' ) );
@@ -32,7 +32,7 @@ class SMNTCS_Simple_Events {
 	 * @return void
 	 */
 	public function load_textdomain() {
-		load_plugin_textdomain( 'smntcs-simple-events-widget', false, basename( dirname( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain( 'smntcs-simple-events-widget', false, basename( dirname( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ) ) . '/languages' );
 	}
 
 	/**
@@ -54,10 +54,10 @@ class SMNTCS_Simple_Events {
 	 * @return void
 	 */
 	public function admin_enqueue_scripts() {
-		$plugin_data = get_plugin_data( __FILE__ );
+		$plugin_data = get_plugin_data( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE );
 		wp_enqueue_script( 'jquery-ui-datepicker' );
-		wp_enqueue_script( 'smntcs-simple-events-script', plugin_dir_url( __FILE__ ) . '/js/custom.js', array( 'jquery' ), $plugin_data['Version'] );
-		wp_enqueue_style( 'smntcs-simple-events-styles', plugin_dir_url( __FILE__ ) . '/js/jquery-ui.css', array(), $plugin_data['Version'] );
+		wp_enqueue_script( 'smntcs-simple-events-script', plugin_dir_url( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ) . 'js/custom.js', array( 'jquery' ), $plugin_data['Version'] );
+		wp_enqueue_style( 'smntcs-simple-events-styles', plugin_dir_url( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ) . '/js/jquery-ui.css', array(), $plugin_data['Version'] );
 	}
 
 	/**

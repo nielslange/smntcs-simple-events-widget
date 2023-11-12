@@ -26,6 +26,10 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-simple-events-wi
 
 ## Changelog
 
+### 2.1 (2023.11.12)
+
+- Convert to OOP
+
 ### 2.0 (2023.10.28)
 
 - Fix i18n issue

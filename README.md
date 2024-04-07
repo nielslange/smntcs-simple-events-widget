@@ -26,6 +26,10 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-simple-events-wi
 
 ## Changelog
 
+### 2.3 (2024.04.07)
+
+- Test up to WP 6.5
+
 ### 2.2 (2023.11.12)
 
 - Fix datepicker issue

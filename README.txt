@@ -2,10 +2,10 @@
 
 Contributors:       nielslange
 Tags:               Simple Events, Event, Widget, Sidebar
-Stable tag:         2.3
-Tested up to:       6.5
+Stable tag:         2.4
+Tested up to:       6.8
 Requires at least:  3.4
-Requires PHP:       5.6
+Requires PHP:       7.4
 License:            GPL v2 or later
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,9 +32,13 @@ Sidebar widget to show (upcoming and previous) events.
 
 == Changelog ==
 
+= 2.4 (2025.03.23)
+
+- Tested up to WordPress 6.8
+
 = 2.3 (2024.04.07) =
 
-- Test up to WP 6.5
+- Tested up to WordPress 6.5
 
 = 2.2 (2023.11.12) =
 
@@ -50,7 +54,7 @@ Sidebar widget to show (upcoming and previous) events.
 
 = 1.9 (2023.10.21) =
 
-- Test up to WP 6.4
+- Tested up to WordPress 6.4
 
 = 1.8 (2023.05.28) =
 
@@ -64,27 +68,27 @@ Sidebar widget to show (upcoming and previous) events.
 = 1.6 (2023.05.07) =
 
 - Show message when no events are available
-- Test up to WP 6.2
+- Tested up to WordPress 6.2
 
 = 1.5 (2022.12.03) =
 
-- Test up to WP 6.1
+- Tested up to WordPress 6.1
 
 = 1.4 (2022.05.29) =
 
-- Test up to WP 6.0
+- Tested up to WordPress 6.0
 
 = 1.3 (2022.01.01) =
 
-- Test up to WP 5.9
+- Tested up to WordPress 5.9
 
 = 1.2 (2019.12.31) =
 
-- Test up to WP 5.8
+- Tested up to WordPress 5.8
 
 = 1.1 (2019.02.19) =
 
-- Test up to WP 5.0
+- Tested up to WordPress 5.0
 
 = 1.0 (2018.04.09) =
 

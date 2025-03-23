@@ -32,81 +32,81 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 	 * @param array $instance The settings for the particular instance of the widget.
 	 */
 	public function widget( $args, $instance ) {
-    $title     = apply_filters( 'widget_title', $instance['title'] );
-    $timestamp = current_time( 'timestamp' );
+		$title     = apply_filters( 'widget_title', $instance['title'] );
+		$timestamp = current_time( 'timestamp' );
 
-    echo $args['before_widget'];
-    if ( ! empty( $title ) ) {
-        echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
-    }
+		echo wp_kses_post( $args['before_widget'] );
+		if ( ! empty( $title ) ) {
+			echo wp_kses_post( $args['before_title'] . esc_html( $title ) . $args['after_title'] );
+		}
 
-    $query_args = array(
-        'post_type' => array( 'post', 'page' ),
-        'meta_key'  => 'datepicker_start',
-        'orderby'   => 'meta_value',
-        'order'     => 'DESC',
-    );
+		$query_args = array(
+			'post_type' => array( 'post', 'page' ),
+			'meta_key'  => 'datepicker_start',
+			'orderby'   => 'meta_value',
+			'order'     => 'DESC',
+		);
 
-    if ( 'upcoming-events' === $instance['display_events'] ) {
-        $query_args['meta_query'] = array(
-            array(
-                'key'     => 'datepicker_start',
-                'value'   => $timestamp,
-                'compare' => '>=',
-                'type'    => 'NUMERIC',
-            ),
-        );
-    }
+		if ( 'upcoming-events' === $instance['display_events'] ) {
+			$query_args['meta_query'] = array(
+				array(
+					'key'     => 'datepicker_start',
+					'value'   => $timestamp,
+					'compare' => '>=',
+					'type'    => 'NUMERIC',
+				),
+			);
+		}
 
-	if ( 'previous-events' === $instance['display_events'] ) {
-        $query_args['meta_query'] = array(
-            array(
-                'key'     => 'datepicker_start',
-                'value'   => $timestamp,
-                'compare' => '<',
-                'type'    => 'NUMERIC',
-            ),
-        );
-    }
+		if ( 'previous-events' === $instance['display_events'] ) {
+			$query_args['meta_query'] = array(
+				array(
+					'key'     => 'datepicker_start',
+					'value'   => $timestamp,
+					'compare' => '<',
+					'type'    => 'NUMERIC',
+				),
+			);
+		}
 
-    $the_query = new WP_Query( $query_args );
+		$the_query = new WP_Query( $query_args );
 
-    if ( $the_query->have_posts() ) {
-        echo '<ul>';
-        while ( $the_query->have_posts() ) {
-            $the_query->the_post();
-            $start_date_meta = get_post_meta( get_the_ID(), 'datepicker_start', true );
-            $start_date = $start_date_meta ? gmdate( get_option( 'date_format' ), intval( $start_date_meta ) ) : __( 'No start date', 'smntcs-simple-events-widget' );
-            $end_date_meta = get_post_meta( get_the_ID(), 'datepicker_end', true );
-            $end_date = $end_date_meta ? gmdate( get_option( 'date_format' ), intval( $end_date_meta ) ) : __( 'No end date', 'smntcs-simple-events-widget' );
+		if ( $the_query->have_posts() ) {
+			echo '<ul>';
+			while ( $the_query->have_posts() ) {
+				$the_query->the_post();
+				$start_date_meta = get_post_meta( get_the_ID(), 'datepicker_start', true );
+				$start_date      = $start_date_meta ? gmdate( get_option( 'date_format' ), intval( $start_date_meta ) ) : __( 'No start date', 'smntcs-simple-events-widget' );
+				$end_date_meta   = get_post_meta( get_the_ID(), 'datepicker_end', true );
+				$end_date        = $end_date_meta ? gmdate( get_option( 'date_format' ), intval( $end_date_meta ) ) : __( 'No end date', 'smntcs-simple-events-widget' );
 
-            $link = get_permalink();
+				$link = get_permalink();
 
-            if ( 'start-and-end-date' === $instance['display_dates'] ) {
-                printf(
-                    '<li>%s - %s:<br><a href="%s">%s</a><br><br></li>',
-                    esc_html( $start_date ),
-                    esc_html( $end_date ),
-                    esc_url( $link ),
-                    esc_html( get_the_title() )
-                );
-            } else {
-                printf(
-                    '<li>%s:<br><a href="%s">%s</a><br><br></li>',
-                    esc_html( $start_date ),
-                    esc_url( $link ),
-                    esc_html( get_the_title() )
-                );
-            }
-        }
-        echo '</ul>';
-    } else {
-        echo '<p>' . esc_html__( 'No events found.', 'smntcs-simple-events-widget' ) . '</p>';
-    }
+				if ( 'start-and-end-date' === $instance['display_dates'] ) {
+					printf(
+						'<li>%s - %s:<br><a href="%s">%s</a><br><br></li>',
+						esc_html( $start_date ),
+						esc_html( $end_date ),
+						esc_url( $link ),
+						esc_html( get_the_title() )
+					);
+				} else {
+					printf(
+						'<li>%s:<br><a href="%s">%s</a><br><br></li>',
+						esc_html( $start_date ),
+						esc_url( $link ),
+						esc_html( get_the_title() )
+					);
+				}
+			}
+			echo '</ul>';
+		} else {
+			echo '<p>' . esc_html__( 'No events found.', 'smntcs-simple-events-widget' ) . '</p>';
+		}
 
-    wp_reset_postdata();
-    echo $args['after_widget'];
-}
+		wp_reset_postdata();
+		echo wp_kses_post( $args['after_widget'] );
+	}
 
 
 	/**

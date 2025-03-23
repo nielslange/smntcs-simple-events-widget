@@ -6,8 +6,8 @@
  * Author:                Niels Lange
  * Author URI:            https://nielslange.de
  * Text Domain:           smntcs-simple-events-widget
- * Version:               2.3
- * Requires PHP:          5.6
+ * Version:               2.4
+ * Requires PHP:          7.4
  * Requires at least:     3.4
  * License:               GPL v2 or later
  * License URI:           https://www.gnu.org/licenses/gpl-2.0.html

@@ -41,10 +41,12 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 		}
 
 		$query_args = array(
-			'post_type' => array( 'post', 'page' ),
-			'meta_key'  => 'datepicker_start',
-			'orderby'   => 'meta_value',
-			'order'     => 'DESC',
+			'post_type'      => array( 'post', 'page' ),
+			'meta_key'       => 'datepicker_start',
+			'orderby'        => 'meta_value',
+			'order'          => 'ASC',
+			'meta_type'      => 'NUMERIC',
+			'posts_per_page' => -1,
 		);
 
 		if ( 'upcoming-events' === $instance['display_events'] ) {
@@ -76,15 +78,15 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
 				$start_date_meta = get_post_meta( get_the_ID(), 'datepicker_start', true );
-				$start_date      = $start_date_meta ? gmdate( get_option( 'date_format' ), intval( $start_date_meta ) ) : __( 'No start date', 'smntcs-simple-events-widget' );
+				$start_date      = $start_date_meta ? gmdate( 'd-m-Y', intval( $start_date_meta ) ) : __( 'No start date', 'smntcs-simple-events-widget' );
 				$end_date_meta   = get_post_meta( get_the_ID(), 'datepicker_end', true );
-				$end_date        = $end_date_meta ? gmdate( get_option( 'date_format' ), intval( $end_date_meta ) ) : __( 'No end date', 'smntcs-simple-events-widget' );
+				$end_date        = $end_date_meta ? gmdate( 'd-m-Y', intval( $end_date_meta ) ) : __( 'No end date', 'smntcs-simple-events-widget' );
 
 				$link = get_permalink();
 
 				if ( 'start-and-end-date' === $instance['display_dates'] ) {
 					printf(
-						'<li>%s - %s:<br><a href="%s">%s</a><br><br></li>',
+						'<li>%s - %s:<br><a href="%s">%s</a></li>',
 						esc_html( $start_date ),
 						esc_html( $end_date ),
 						esc_url( $link ),
@@ -92,7 +94,7 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 					);
 				} else {
 					printf(
-						'<li>%s:<br><a href="%s">%s</a><br><br></li>',
+						'<li>%s:<br><a href="%s">%s</a></li>',
 						esc_html( $start_date ),
 						esc_url( $link ),
 						esc_html( get_the_title() )

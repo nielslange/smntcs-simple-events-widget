@@ -2,8 +2,8 @@
 
 Contributors:       nielslange
 Tags:               Simple Events, Event, Widget, Sidebar
-Stable tag:         2.4
-Tested up to:       6.8
+Stable tag:         2.5
+Tested up to:       6.9
 Requires at least:  3.4
 Requires PHP:       7.4
 License:            GPL v2 or later
@@ -31,6 +31,14 @@ Sidebar widget to show (upcoming and previous) events.
 3. See desired events within the sidebar.
 
 == Changelog ==
+
+= 2.5 (2025.03.25) =
+
+- Tested up to WordPress 6.9
+- Add widget options for event sort order and line break between date and title
+- Use date_i18n for localized date output
+- Include WooCommerce products when querying events
+- Update Composer dev dependencies; replace phpcs.dist.xml with phpcs.xml; refresh GitHub Actions
 
 = 2.4 (2025.03.23)
 

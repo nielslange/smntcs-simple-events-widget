@@ -18,10 +18,10 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 	 * SMNTCS_Simple_Events_Widget constructor.
 	 */
 	public function __construct() {
-		$widget_options = array(
+		$widget_options = [
 			'classname'   => 'smntcs_simple_events_widget',
 			'description' => 'Display Simple Events Widget',
-		);
+		];
 		parent::__construct( 'smntcs_simple_events_widget', 'Simple Events Widget', $widget_options );
 	}
 
@@ -32,8 +32,9 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 	 * @param array $instance The settings for the particular instance of the widget.
 	 */
 	public function widget( $args, $instance ) {
-		$title     = apply_filters( 'widget_title', $instance['title'] );
-		$timestamp = current_time( 'timestamp' );
+		$title = apply_filters( 'widget_title', $instance['title'] );
+		// Event meta is stored as UTC Unix timestamps; compare using the current instant.
+		$timestamp = time();
 
 		$sort_order = isset( $instance['sort_order'] ) && 'DESC' === $instance['sort_order'] ? 'DESC' : 'ASC';
 
@@ -42,35 +43,35 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 			echo wp_kses_post( $args['before_title'] . esc_html( $title ) . $args['after_title'] );
 		}
 
-		$query_args = array(
-			'post_type'      => array( 'post', 'page', 'product' ),
+		$query_args = [
+			'post_type'      => [ 'post', 'page', 'product' ],
 			'meta_key'       => 'datepicker_start',
 			'orderby'        => 'meta_value',
 			'order'          => $sort_order,
 			'meta_type'      => 'NUMERIC',
 			'posts_per_page' => -1,
-		);
+		];
 
 		if ( 'upcoming-events' === $instance['display_events'] ) {
-			$query_args['meta_query'] = array(
-				array(
+			$query_args['meta_query'] = [
+				[
 					'key'     => 'datepicker_start',
 					'value'   => $timestamp,
 					'compare' => '>=',
 					'type'    => 'NUMERIC',
-				),
-			);
+				],
+			];
 		}
 
 		if ( 'previous-events' === $instance['display_events'] ) {
-			$query_args['meta_query'] = array(
-				array(
+			$query_args['meta_query'] = [
+				[
 					'key'     => 'datepicker_start',
 					'value'   => $timestamp,
 					'compare' => '<',
 					'type'    => 'NUMERIC',
-				),
-			);
+				],
+			];
 		}
 
 		$the_query = new WP_Query( $query_args );
@@ -170,11 +171,11 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 
-		$instance['title']          = strip_tags( $new_instance['title'] );
-		$instance['display_events'] = strip_tags( $new_instance['display_events'] );
-		$instance['display_dates']  = strip_tags( $new_instance['display_dates'] );
+		$instance['title']          = wp_strip_all_tags( $new_instance['title'] );
+		$instance['display_events'] = wp_strip_all_tags( $new_instance['display_events'] );
+		$instance['display_dates']  = wp_strip_all_tags( $new_instance['display_dates'] );
 
-		$raw_sort                          = isset( $new_instance['sort_order'] ) ? strtoupper( strip_tags( $new_instance['sort_order'] ) ) : 'ASC';
+		$raw_sort                          = isset( $new_instance['sort_order'] ) ? strtoupper( wp_strip_all_tags( $new_instance['sort_order'] ) ) : 'ASC';
 		$instance['sort_order']            = ( 'DESC' === $raw_sort ) ? 'DESC' : 'ASC';
 		$instance['date_title_line_break'] = ! empty( $new_instance['date_title_line_break'] ) ? '1' : '';
 

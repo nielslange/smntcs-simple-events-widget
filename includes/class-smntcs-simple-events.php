@@ -18,12 +18,12 @@ class SMNTCS_Simple_Events {
 	 * SMNTCS_Simple_Events constructor.
 	 */
 	public function __construct() {
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-		add_filter( 'plugin_action_links_' . plugin_basename( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ), array( $this, 'plugin_settings_link' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
-		add_action( 'save_post', array( $this, 'save_post' ) );
-		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+		add_action( 'plugins_loaded', [ $this, 'load_textdomain' ] );
+		add_filter( 'plugin_action_links_' . plugin_basename( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ), [ $this, 'plugin_settings_link' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
+		add_action( 'add_meta_boxes', [ $this, 'add_meta_boxes' ] );
+		add_action( 'save_post', [ $this, 'save_post' ] );
+		add_action( 'widgets_init', [ $this, 'widgets_init' ] );
 	}
 
 	/**
@@ -56,8 +56,8 @@ class SMNTCS_Simple_Events {
 	public function admin_enqueue_scripts() {
 		$plugin_data = get_plugin_data( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE );
 		wp_enqueue_script( 'jquery-ui-datepicker' );
-		wp_enqueue_script( 'smntcs-simple-events-script', plugin_dir_url( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ) . 'js/custom.js', array( 'jquery' ), $plugin_data['Version'] );
-		wp_enqueue_style( 'smntcs-simple-events-styles', plugin_dir_url( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ) . '/js/jquery-ui.css', array(), $plugin_data['Version'] );
+		wp_enqueue_script( 'smntcs-simple-events-script', plugin_dir_url( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ) . 'js/custom.js', [ 'jquery' ], $plugin_data['Version'], true );
+		wp_enqueue_style( 'smntcs-simple-events-styles', plugin_dir_url( SMNTCS_SIMPLE_EVENTS_WIDGET_PLUGIN_FILE ) . '/js/jquery-ui.css', [], $plugin_data['Version'] );
 	}
 
 	/**
@@ -66,12 +66,12 @@ class SMNTCS_Simple_Events {
 	 * @return void
 	 */
 	public function add_meta_boxes() {
-		add_meta_box( 'meta-box-id', __( 'Event', 'smntcs-simple-events-widget' ), array( $this, 'display_callback' ), 'post', 'side' );
-		add_meta_box( 'meta-box-id', __( 'Event', 'smntcs-simple-events-widget' ), array( $this, 'display_callback' ), 'page', 'side' );
+		add_meta_box( 'meta-box-id', __( 'Event', 'smntcs-simple-events-widget' ), [ $this, 'display_callback' ], 'post', 'side' );
+		add_meta_box( 'meta-box-id', __( 'Event', 'smntcs-simple-events-widget' ), [ $this, 'display_callback' ], 'page', 'side' );
 
-		// Add meta box for WooCommerce products if WooCommerce is active
+		// Add meta box for WooCommerce products if WooCommerce is active.
 		if ( class_exists( 'WooCommerce' ) ) {
-			add_meta_box( 'meta-box-id', __( 'Event', 'smntcs-simple-events-widget' ), array( $this, 'display_callback' ), 'product', 'side' );
+			add_meta_box( 'meta-box-id', __( 'Event', 'smntcs-simple-events-widget' ), [ $this, 'display_callback' ], 'product', 'side' );
 		}
 	}
 
@@ -112,7 +112,7 @@ class SMNTCS_Simple_Events {
 	public function save_post( $post_id ) {
 		// Check for nonce.
 		if ( ! isset( $_POST['smntcs_wpnonce'] ) ||
-			 ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['smntcs_wpnonce'] ) ), 'smntcs_add_simple_event' ) ) {
+			! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['smntcs_wpnonce'] ) ), 'smntcs_add_simple_event' ) ) {
 			return;
 		}
 

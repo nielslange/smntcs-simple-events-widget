@@ -26,6 +26,14 @@ You can find the plugin on [Wordpress.org](https://wordpress.org/plugins/smntcs-
 
 ## Changelog
 
+### 2.5 (2025.03.25)
+
+- Tested up to WordPress 6.9
+- Add widget options for event sort order and line break between date and title
+- Use date_i18n for localized date output
+- Include WooCommerce products when querying events
+- Update Composer dev dependencies; replace phpcs.dist.xml with phpcs.xml; refresh GitHub Actions
+
 ### 2.4 (2025.03.23)
 
 - Tested up to WordPress 6.8

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset>
-	<description>FreshLondon Coding Standards</description>
+	<description>SMNTCS Coding Standards</description>
 
 	<!-- PHPCS command line arguments -->
 	<arg value="sp"/>
@@ -18,12 +18,17 @@
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>node_modules/*</exclude-pattern>
 
+	<!-- Array syntax configuration -->
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+	<rule ref="Universal.Arrays.DisallowShortArraySyntax">
+		<severity>0</severity>
+	</rule>
+
 	<!-- Check valid textdomain -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="plantekb"/>
-				<element value="woocommerce"/>
+				<element value="smntcs-simple-events-widget"/>
 			</property>
 		</properties>
 	</rule>

@@ -2,7 +2,7 @@
 /**
  * Plugin Name:           SMNTCS Simple Events Widget
  * Plugin URI:            https://github.com/nielslange/smntcs-simple-events-widget
- * Description:           Add meta box to posts and pages, to select event start and end date and show upcoming and previous events as sidebar widget.
+ * Description:           Add event start and optional end dates on posts, pages, and WooCommerce products; list them in a customizable sidebar widget.
  * Author:                Niels Lange
  * Author URI:            https://nielslange.de
  * Text Domain:           smntcs-simple-events-widget

@@ -9,11 +9,19 @@ Requires PHP:       7.4
 License:            GPL v2 or later
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
-Sidebar widget to show (upcoming and previous) events.
+Add event dates to your content and list upcoming or past events in a classic sidebar widget.
 
 == Description ==
 
-Sidebar widget to show (upcoming and previous) events.
+SMNTCS Simple Events Widget is a lightweight way to pin calendar dates to individual posts, pages, or WooCommerce products and show them in the sidebar when visitors browse your site.
+
+You pick a start date and, if you want, an end date, right in the editor. Then you drop the *Simple Events Widget* into a widget area and decide whether to show what is still ahead, what has already passed, or both. You can show only the start date or start and end together, change the sort order, add a line break before the title, and dates respect your site’s language and date format.
+
+* Event fields (with date picker) on posts, pages, and on products when WooCommerce is active
+* Widget: upcoming events, previous events, or both
+* Display start date only or start and end date
+* Sort order and optional line break between date and title
+* Classic WordPress widget—place it under **Customize → Widgets** or in your theme’s widget regions
 
 == Installation ==
 
@@ -22,7 +30,7 @@ Sidebar widget to show (upcoming and previous) events.
 3. Go to post or page and provide a start date of the event.
 4. If wanted, also provide an end date of the event.
 5. Go to `Customize » Widgets`, add the `Simple Events Widget` to the required sidebar.
-6. Adjust the widget settings according to you needs.
+6. Adjust the widget settings according to your needs.
 
 == Screenshots ==
 

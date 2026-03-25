@@ -68,6 +68,11 @@ class SMNTCS_Simple_Events {
 	public function add_meta_boxes() {
 		add_meta_box( 'meta-box-id', __( 'Event', 'smntcs-simple-events-widget' ), array( $this, 'display_callback' ), 'post', 'side' );
 		add_meta_box( 'meta-box-id', __( 'Event', 'smntcs-simple-events-widget' ), array( $this, 'display_callback' ), 'page', 'side' );
+
+		// Add meta box for WooCommerce products if WooCommerce is active
+		if ( class_exists( 'WooCommerce' ) ) {
+			add_meta_box( 'meta-box-id', __( 'Event', 'smntcs-simple-events-widget' ), array( $this, 'display_callback' ), 'product', 'side' );
+		}
 	}
 
 	/**

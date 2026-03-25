@@ -41,7 +41,7 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 		}
 
 		$query_args = array(
-			'post_type'      => array( 'post', 'page' ),
+			'post_type'      => array( 'post', 'page', 'product' ),
 			'meta_key'       => 'datepicker_start',
 			'orderby'        => 'meta_value',
 			'order'          => 'ASC',

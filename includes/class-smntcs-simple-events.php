@@ -169,7 +169,7 @@ class SMNTCS_Simple_Events {
 	 * @return string The converted date, e.g. 01-01-2017.
 	 */
 	public static function timestamp_to_date( $timestamp ) {
-		return gmdate( 'd-m-Y', $timestamp );
+		return date_i18n( get_option( 'date_format' ), $timestamp );
 	}
 }
 

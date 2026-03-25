@@ -35,6 +35,8 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 		$title     = apply_filters( 'widget_title', $instance['title'] );
 		$timestamp = current_time( 'timestamp' );
 
+		$sort_order = isset( $instance['sort_order'] ) && 'DESC' === $instance['sort_order'] ? 'DESC' : 'ASC';
+
 		echo wp_kses_post( $args['before_widget'] );
 		if ( ! empty( $title ) ) {
 			echo wp_kses_post( $args['before_title'] . esc_html( $title ) . $args['after_title'] );
@@ -44,7 +46,7 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 			'post_type'      => array( 'post', 'page', 'product' ),
 			'meta_key'       => 'datepicker_start',
 			'orderby'        => 'meta_value',
-			'order'          => 'ASC',
+			'order'          => $sort_order,
 			'meta_type'      => 'NUMERIC',
 			'posts_per_page' => -1,
 		);
@@ -73,28 +75,32 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 
 		$the_query = new WP_Query( $query_args );
 
+		$date_title_separator = ! empty( $instance['date_title_line_break'] ) ? ': <br />' : ': ';
+
 		if ( $the_query->have_posts() ) {
 			echo '<ul>';
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
 				$start_date_meta = get_post_meta( get_the_ID(), 'datepicker_start', true );
-				$start_date 	 = $start_date_meta ? date_i18n( get_option( 'date_format' ), intval( $start_date_meta ), true ) : __( 'No start date', 'smntcs-simple-events-widget' );
+				$start_date      = $start_date_meta ? date_i18n( get_option( 'date_format' ), intval( $start_date_meta ), true ) : __( 'No start date', 'smntcs-simple-events-widget' );
 				$end_date_meta   = get_post_meta( get_the_ID(), 'datepicker_end', true );
-				$end_date 		 = $end_date_meta ? date_i18n( get_option( 'date_format' ), intval( $end_date_meta ), true ) : __( 'No end date', 'smntcs-simple-events-widget' );
-				$link 			 = get_permalink();
+				$end_date        = $end_date_meta ? date_i18n( get_option( 'date_format' ), intval( $end_date_meta ), true ) : __( 'No end date', 'smntcs-simple-events-widget' );
+				$link            = get_permalink();
 
 				if ( 'start-and-end-date' === $instance['display_dates'] ) {
 					printf(
-						'<li>%s - %s: <a href="%s">%s</a></li>',
+						'<li>%s - %s%s<a href="%s">%s</a></li>',
 						esc_html( $start_date ),
 						esc_html( $end_date ),
+						wp_kses_post( $date_title_separator ),
 						esc_url( $link ),
 						esc_html( get_the_title() )
 					);
 				} else {
 					printf(
-						'<li>%s: <a href="%s">%s</a></li>',
+						'<li>%s%s<a href="%s">%s</a></li>',
 						esc_html( $start_date ),
+						wp_kses_post( $date_title_separator ),
 						esc_url( $link ),
 						esc_html( get_the_title() )
 					);
@@ -139,6 +145,17 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 				<option <?php isset( $instance['display_dates'] ) ? selected( $instance['display_dates'], 'start-and-end-date' ) : ''; ?>value="start-and-end-date"><?php esc_html_e( 'Start and end date', 'smntcs-simple-events-widget' ); ?></option>
 			</select>
 		</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'sort_order' ) ); ?>"><?php esc_html_e( 'Sort order:', 'smntcs-simple-events-widget' ); ?></label>
+			<select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'sort_order' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'sort_order' ) ); ?>">
+				<option <?php selected( $instance['sort_order'] ?? 'ASC', 'ASC' ); ?> value="ASC"><?php esc_html_e( 'Ascending (earliest first)', 'smntcs-simple-events-widget' ); ?></option>
+				<option <?php selected( $instance['sort_order'] ?? 'ASC', 'DESC' ); ?> value="DESC"><?php esc_html_e( 'Descending (latest first)', 'smntcs-simple-events-widget' ); ?></option>
+			</select>
+		</p>
+		<p>
+			<input class="checkbox" type="checkbox" <?php checked( ! empty( $instance['date_title_line_break'] ) ); ?> id="<?php echo esc_attr( $this->get_field_id( 'date_title_line_break' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date_title_line_break' ) ); ?>" value="1">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'date_title_line_break' ) ); ?>"><?php esc_html_e( 'Line break between date and title', 'smntcs-simple-events-widget' ); ?></label>
+		</p>
 		<?php
 	}
 
@@ -156,6 +173,10 @@ class SMNTCS_Simple_Events_Widget extends WP_Widget {
 		$instance['title']          = strip_tags( $new_instance['title'] );
 		$instance['display_events'] = strip_tags( $new_instance['display_events'] );
 		$instance['display_dates']  = strip_tags( $new_instance['display_dates'] );
+
+		$raw_sort                          = isset( $new_instance['sort_order'] ) ? strtoupper( strip_tags( $new_instance['sort_order'] ) ) : 'ASC';
+		$instance['sort_order']            = ( 'DESC' === $raw_sort ) ? 'DESC' : 'ASC';
+		$instance['date_title_line_break'] = ! empty( $new_instance['date_title_line_break'] ) ? '1' : '';
 
 		return $instance;
 	}

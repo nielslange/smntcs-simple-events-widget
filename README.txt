@@ -2,8 +2,8 @@
 
 Contributors:       nielslange
 Tags:               Simple Events, Event, Widget, Sidebar
-Stable tag:         2.5
-Tested up to:       6.9
+Stable tag:         2.6
+Tested up to:       7.0
 Requires at least:  3.4
 Requires PHP:       7.4
 License:            GPL v2 or later
@@ -39,6 +39,10 @@ You pick a start date and, if you want, an end date, right in the editor. Then y
 3. See desired events within the sidebar.
 
 == Changelog ==
+
+= 2.6 (2026.08.14) =
+
+- Tested up to WordPress 7.0
 
 = 2.5 (2025.03.25) =
 

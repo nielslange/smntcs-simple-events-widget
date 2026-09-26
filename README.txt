@@ -1,15 +1,15 @@
 === SMNTCS Simple Events Widget ===
 
 Contributors:       nielslange
-Tags:               Simple Events, Event, Widget, Sidebar
-Stable tag:         2.6
-Tested up to:       7.0
+Tags:               events, widget, sidebar, calendar, upcoming events
 Requires at least:  3.4
+Tested up to:       7.1
 Requires PHP:       7.4
+Stable tag:         2.7
 License:            GPL v2 or later
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
-Add event dates to your content and list upcoming or past events in a classic sidebar widget.
+Adds event dates to posts, pages and products and lists upcoming or past events in a sidebar widget.
 
 == Description ==
 
@@ -40,6 +40,11 @@ You pick a start date and, if you want, an end date, right in the editor. Then y
 
 == Changelog ==
 
+= 2.7 (2026.09.26) =
+
+- Test up to WordPress 7.1
+- Update development dependencies and GitHub Actions
+
 = 2.6 (2026.08.14) =
 
 - Tested up to WordPress 7.0
@@ -52,8 +57,7 @@ You pick a start date and, if you want, an end date, right in the editor. Then y
 - Include WooCommerce products when querying events
 - Update Composer dev dependencies; replace phpcs.dist.xml with phpcs.xml; refresh GitHub Actions
 
-= 2.4 (2025.03.23)
-
+= 2.4 (2025.03.23) =
 - Tested up to WordPress 6.8
 
 = 2.3 (2024.04.07) =

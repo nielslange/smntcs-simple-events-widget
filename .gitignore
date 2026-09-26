@@ -5,3 +5,8 @@ composer.lock
 package-lock.json
 /.phplint.cache
 /.phpcs.cache
+cypress/screenshots
+cypress/videos
+playwright-report
+test-results
+.DS_Store

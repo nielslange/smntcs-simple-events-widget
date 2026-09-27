@@ -5,7 +5,7 @@ Tags:               events, widget, sidebar, calendar, upcoming events
 Requires at least:  3.4
 Tested up to:       7.1
 Requires PHP:       7.4
-Stable tag:         2.7
+Stable tag:         2.8
 License:            GPL v2 or later
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,15 +13,15 @@ Adds event dates to posts, pages and products and lists upcoming or past events 
 
 == Description ==
 
-SMNTCS Simple Events Widget is a lightweight way to pin calendar dates to individual posts, pages, or WooCommerce products and show them in the sidebar when visitors browse your site.
+SMNTCS Simple Events Widget turns posts, pages and WooCommerce products into events. Give them a start date, and optionally an end date, in the editor. The Simple Events Widget then lists them in any widget area.
 
-You pick a start date and, if you want, an end date, right in the editor. Then you drop the *Simple Events Widget* into a widget area and decide whether to show what is still ahead, what has already passed, or both. You can show only the start date or start and end together, change the sort order, add a line break before the title, and dates respect your site’s language and date format.
+= Features =
 
-* Event fields (with date picker) on posts, pages, and on products when WooCommerce is active
-* Widget: upcoming events, previous events, or both
-* Display start date only or start and end date
-* Sort order and optional line break between date and title
-* Classic WordPress widget—place it under **Customize → Widgets** or in your theme’s widget regions
+* Date fields with a date picker on posts, pages and, when WooCommerce is active, products
+* Show upcoming events, past events or both
+* Show the start date only, or the start and end date
+* Choose the sort order and an optional line break between date and title
+* Dates follow your site's language and date format
 
 == Installation ==
 
@@ -39,6 +39,10 @@ You pick a start date and, if you want, an end date, right in the editor. Then y
 3. See desired events within the sidebar.
 
 == Changelog ==
+
+= 2.8 (2026.09.27) =
+
+- Rewrite the plugin description
 
 = 2.7 (2026.09.26) =
 

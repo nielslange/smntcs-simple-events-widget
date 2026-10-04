@@ -5,7 +5,7 @@ Tags:               events, widget, sidebar, calendar, upcoming events
 Requires at least:  3.4
 Tested up to:       7.1
 Requires PHP:       7.4
-Stable tag:         2.8
+Stable tag:         2.9
 License:            GPL v2 or later
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,10 @@ SMNTCS Simple Events Widget turns posts, pages and WooCommerce products into eve
 3. See desired events within the sidebar.
 
 == Changelog ==
+
+= 2.9 (2026.10.04) =
+
+- Fix a fatal error when saving a post with an event date on sites whose date format isn't dd-mm-yyyy
 
 = 2.8 (2026.09.27) =
 

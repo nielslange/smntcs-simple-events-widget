@@ -83,10 +83,10 @@ class SMNTCS_Simple_Events {
 	 */
 	public function display_callback( $post ) {
 		$start_date             = get_post_meta( $post->ID, 'datepicker_start', true );
-		$start_date_value       = ! empty( $start_date ) ? self::timestamp_to_date( $start_date ) : null;
+		$start_date_value       = ! empty( $start_date ) ? self::timestamp_to_input_date( $start_date ) : null;
 		$start_date_placeholder = ! empty( $start_date ) ? self::timestamp_to_date( $start_date ) : 'dd-mm-yyyy';
 		$end_date               = get_post_meta( $post->ID, 'datepicker_end', true );
-		$end_date_value         = ! empty( $end_date ) ? self::timestamp_to_date( $end_date ) : null;
+		$end_date_value         = ! empty( $end_date ) ? self::timestamp_to_input_date( $end_date ) : null;
 		$end_date_placeholder   = ! empty( $end_date ) ? self::timestamp_to_date( $end_date ) : 'dd-mm-yyyy';
 		wp_nonce_field( 'smntcs_add_simple_event', 'smntcs_wpnonce' );
 		?>
@@ -126,18 +126,22 @@ class SMNTCS_Simple_Events {
 			return;
 		}
 
-		// Save or delete start date.
+		// Save or delete start date. Keep the stored date if the input can't be parsed.
 		if ( isset( $_POST['datepicker_start'] ) && ! empty( $_POST['datepicker_start'] ) ) {
 			$start_date = self::date_to_timestamp( sanitize_text_field( wp_unslash( $_POST['datepicker_start'] ) ) );
-			update_post_meta( $post_id, 'datepicker_start', $start_date );
+			if ( false !== $start_date ) {
+				update_post_meta( $post_id, 'datepicker_start', $start_date );
+			}
 		} else {
 			delete_post_meta( $post_id, 'datepicker_start' );
 		}
 
-		// Save or delete end date.
+		// Save or delete end date. Keep the stored date if the input can't be parsed.
 		if ( isset( $_POST['datepicker_end'] ) && ! empty( $_POST['datepicker_end'] ) ) {
 			$end_date = self::date_to_timestamp( sanitize_text_field( wp_unslash( $_POST['datepicker_end'] ) ) );
-			update_post_meta( $post_id, 'datepicker_end', $end_date );
+			if ( false !== $end_date ) {
+				update_post_meta( $post_id, 'datepicker_end', $end_date );
+			}
 		} else {
 			delete_post_meta( $post_id, 'datepicker_end' );
 		}
@@ -155,11 +159,42 @@ class SMNTCS_Simple_Events {
 	/**
 	 * Convert date to timestamp.
 	 *
+	 * Accepts the datepicker format (d-m-Y) and, for forms rendered by older
+	 * versions of the plugin, the site's date format if it contains a full date.
+	 * Invalid dates such as 32-13-2025 are rejected instead of rolled over.
+	 *
 	 * @param  string $date The date to convert, e.g. 01-01-2017.
-	 * @return int The converted timestamp, e.g. 1483228800.
+	 * @return int|false The converted timestamp, e.g. 1483228800, or false if the date can't be parsed.
 	 */
 	public static function date_to_timestamp( $date ) {
-		return DateTime::createFromFormat( 'd-m-Y', $date, new DateTimeZone( 'UTC' ) )->getTimestamp();
+		$formats = [ 'd-m-Y' ];
+
+		// Ignore escaped characters, e.g. the "d" in "j \d\e F Y".
+		$site_format = (string) get_option( 'date_format' );
+		$tokens      = preg_replace( '/\\\\./', '', $site_format );
+		if ( preg_match( '/[dj]/', $tokens ) && preg_match( '/[mnMF]/', $tokens ) && preg_match( '/[Yy]/', $tokens ) ) {
+			$formats[] = $site_format;
+		}
+
+		foreach ( array_unique( $formats ) as $format ) {
+			$datetime = DateTime::createFromFormat( $format, $date, new DateTimeZone( 'UTC' ) );
+			$errors   = DateTime::getLastErrors();
+			if ( false !== $datetime && ( false === $errors || 0 === $errors['warning_count'] ) ) {
+				return $datetime->getTimestamp();
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Convert timestamp to the date format used by the datepicker input.
+	 *
+	 * @param string $timestamp The timestamp to convert, e.g. 1483228800.
+	 * @return string The converted date, e.g. 01-01-2017.
+	 */
+	public static function timestamp_to_input_date( $timestamp ) {
+		return gmdate( 'd-m-Y', (int) $timestamp );
 	}
 
 	/**

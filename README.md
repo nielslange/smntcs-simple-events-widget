@@ -36,6 +36,10 @@ You can find the plugin on [Wordpress.org](https://wordpress.org/plugins/smntcs-
 
 ## Changelog
 
+### 2.9 (2026.10.04)
+
+- Fix a fatal error when saving a post with an event date on sites whose date format isn't dd-mm-yyyy
+
 ### 2.8 (2026.09.27)
 
 - Rewrite the plugin description
